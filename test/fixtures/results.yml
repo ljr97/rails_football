@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-08-03
+  home_team: MyText
+  away_team: MyText
+  home_score: 
+  away_score: 
+  tournament: MyText
+  city: MyText
+  country: MyText
+  neutral: 
+
+two:
+  date: 2020-08-03
+  home_team: MyText
+  away_team: MyText
+  home_score: 
+  away_score: 
+  tournament: MyText
+  city: MyText
+  country: MyText
+  neutral: 

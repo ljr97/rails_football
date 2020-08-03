@@ -1,0 +1,200 @@
+<h1>Football Results</h1>
+<%= link_to 'Results', controller: 'results' %>
+<%= link_to 'New Result', new_result_path %>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js
+"></script>
+
+<div> 
+
+<div id="myDiv1">
+<canvas id="myChart" width="100" height="100"></canvas>
+</div>
+
+<script>
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Friendly', 'FIFA World Cup Q', 'British Championship', 'Copa América', 'UEFA Euro Q', 'Merdeka', "FIFA World Cup", "Nordic Cup", "International Cup", "CCCF"],
+        datasets: [{
+            label: 'Number of Games',
+            data: ["5260","919","459","407","381","342","270","246","127","123",],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<div style="padding:30px">
+<h3>Top 10 Most Frequent Tournament Types</h3>
+<table>
+    <tr>
+    <th>Tournament Type</th>
+    <th>Frequency</th>
+    </tr>
+
+    <% @data.each do |data| %>
+        <tr>
+        <td><%= data.tournament %></td>
+        <td><%= data.c %></td>
+        <tr>
+    <% end %>
+</table>
+</div>
+</div>
+
+<div>
+<div id="myDiv1">
+<canvas id="myChart2" width="100" height="100"></canvas>
+</div>
+<script>
+
+var ctx = document.getElementById('myChart2').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Argentina', 'Sweden', 'Brazil', 'England', 'Hungary', 'Germany', "France", "Austria", "Belgium", "Scotland"],
+        datasets: [{
+            label: 'Number of Home Goals',
+            data: ["271","255","235","233","227","208","198","198","197","196",],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<div style="padding:30px">
+<h3>Top 10 Highest Scoring Home Teams</h3>
+<table>
+    <tr>
+    <th>Home Team</th>
+    <th>Goals</th>
+    </tr>
+
+    <% @home_goals.each do |data| %>
+        <tr>
+        <td><%= data.home_team %></td>
+        <td><%= data.c %></td>
+        <tr>
+    <% end %>
+</table>
+</div>
+
+</div
+
+<div>
+<div id="myDiv1">
+<canvas id="myChart3" width="100" height="100"></canvas>
+</div>
+
+<script>
+
+var ctx = document.getElementById('myChart3').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['England', 'Hungary', 'Uruguay	', 'Sweden', 'Yugoslavia', 'Scotland', "Austria", "Argentina", "Germany", "Switzerland"],
+        datasets: [{
+            label: 'Number of Away Goals',
+            data: ["281","267","267","248","215","208","204","201","193","189",],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<div style="padding:30px">
+<h3>Top 10 Highest Scoring Away Teams</h3>
+<table>
+    <tr>
+    <th>Away Team</th>
+    <th>Goals</th>
+    </tr>
+
+    <% @away_goals.each do |data| %>
+        <tr>
+        <td><%= data.away_team %></td>
+        <td><%= data.c %></td>
+        <tr>
+    <% end %>
+</table>
+</div>
+</div>

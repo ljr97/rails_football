@@ -1,0 +1,58 @@
+<%= form_with(model: @result, local: true) do |form| %>
+ 
+    <% if @result.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@result.errors.count, "error") %> prohibited
+          this result from being saved:
+        </h2>
+        <ul>
+          <% @result.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+   
+    <p>
+    <%= form.label :date %><br>
+    <%= form.text_field :date %>
+  </p>
+  <p>
+    <%= form.label :home_team %><br>
+    <%= form.text_field :home_team %>
+  </p>
+  <p>
+    <%= form.label :away_team %><br>
+    <%= form.text_field :away_team %>
+  </p>
+  <p>
+    <%= form.label :home_score %><br>
+    <%= form.text_field :home_score %>
+  </p>
+  <p>
+    <%= form.label :away_score %><br>
+    <%= form.text_field :away_score %>
+  </p>
+  <p>
+    <%= form.label :tournament %><br>
+    <%= form.text_field :tournament %>
+  </p>
+  <p>
+    <%= form.label :city %><br>
+    <%= form.text_field :city %>
+  </p>
+  <p>
+    <%= form.label :country %><br>
+    <%= form.text_field :country %>
+  </p>
+  <p>
+    <%= form.label :neutral %><br>
+    <%= form.text_field :neutral %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+   
+  <% end %>

@@ -1,0 +1,41 @@
+<h1>Listing Results</h1>
+ 
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Home Team</th>
+    <th>Away Team</th>
+    <th>Home Score</th>
+    <th>Away Score</th>
+    <th>Tournament</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Neutral</th>
+    <th></th>
+  </tr>
+ 
+# var data = JSON.parse("<%= @data.to_json %>");
+# console.log(data)
+
+  <% @results.each do |result| %>
+    <tr>
+      <td><%= result.date %></td>
+      <td><%= result.home_team %></td>
+      <td><%= result.away_team %></td>
+      <td><%= result.home_score %></td>
+      <td><%= result.away_score %></td>
+      <td><%= result.tournament %></td>
+      <td><%= result.city %></td>
+      <td><%= result.country %></td>
+      <td><%= result.neutral %></td>
+      <td><%= link_to 'Show', result_path(result) %></td>
+      <td><%= link_to 'Edit', edit_result_path(result) %></td>
+      <td><%= link_to 'Delete', result_path(result),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @results %>
+<%= link_to 'New Result', new_result_path %>
